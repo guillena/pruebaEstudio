@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Test de Hábitos de Estudio</title>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  /* Estilo para ocultar los bordes de la tabla */
+  table, th, td {
+    border: 1px solid transparent;
+  }
+</style>
+<script>
+  var contenidoOriginal;
+
+  window.onload = function() {
+    contenidoOriginal = document.body.innerHTML; // Guardar el contenido original
+  };
+
+  function mostrarResultado() {
+    var preguntas = document.querySelectorAll('input[type="checkbox"]:checked');
+    var resultado = preguntas.length; // Simplificando el cálculo del resultado
+    var mensaje;
+    // Ajuste de los mensajes según el rango del resultado (simplificado para el ejemplo)
+    if (resultado <= 14) {
+      mensaje = "NO SABES ESTUDIAR";
+    } else if (resultado <= 28) {
+      mensaje = "TIENES HÁBITOS QUE DEBES MEJORAR";
+    } else {
+      mensaje = "SABES ESTUDIAR, PERO PUEDES MEJORAR TU RENDIMIENTO";
+    }
+    document.body.innerHTML = `<h1>${mensaje}</h1><h2>Has marcado ${preguntas.length} preguntas como ciertas.</h2><button onclick='volver()'>Volver</button>`;
+    document.body.style.backgroundColor = "white";
+  }
+
+  function volver() {
+    document.body.innerHTML = contenidoOriginal; // Restaurar el contenido original
+    document.querySelector('#verResultado').onclick = mostrarResultado;
+  }
+</script>
+</head>
+<body>
+
+<h2>¿SABES ESTUDIAR?</h2>
+<p>Por favor, marca las casillas de las preguntas que sientas que se aplican a ti.</p>
+
+<!-- LUGAR -->
+<table>
+  <tr><th>LUGAR</th></tr>
+  <tr><td>1. Tienes un sitio fijo para estudiar <input type="checkbox"></td></tr>
+  <tr><td>2. Estudias en una habitación alejada de ruidos, TV, radio, etc <input type="checkbox"></td></tr>
+  <tr><td>3. Tienes luz suficiente <input type="checkbox"></td></tr>
+  <tr><td>4. Cuando te pones a estudiar, tienes a mano todo lo que necesitas <input type="checkbox"></td></tr>
+</table>
+
+<!-- TIEMPO -->
+<table>
+  <tr><th>TIEMPO</th></tr>
+  <tr><td>5. Tienes un horario fijo de estudio <input type="checkbox"></td></tr>
+  <tr><td>6. Divides tu tiempo entre las asignaturas que tienes que estudiar <input type="checkbox"></td></tr>
+  <tr><td>7. Estudias como mínimo cinco días por semana <input type="checkbox"></td></tr>
+  <tr><td>8. En tu plan de estudios, incluyes ratos de descanso <input type="checkbox"></td></tr>
+</table>
+
+<!-- ATENCIÓN -->
+<table>
+  <tr><th>ATENCIÓN</th></tr>
+  <tr><td>9. Miras al profesor cuando explica <input type="checkbox"></td></tr>
+  <tr><td>10. Tomas nota de las lecciones señaladas para estudiar y de los ejercicios a realizar <input type="checkbox"></td></tr>
+  <tr><td>11. Estás atento durante toda la explicación <input type="checkbox"></td></tr>
+  <tr><td>12. Preguntas cuando no entiendes alguna cuestión <input type="checkbox"></td></tr>
+  <tr><td>13. Participas bien en la actividad común de la clase <input type="checkbox"></td></tr>
+</table>
+
+<!-- APUNTES -->
+<table>
+  <tr><th>APUNTES</th></tr>
+  <tr><td>14. Indicas la fecha en tus hojas de apuntes <input type="checkbox"></td></tr>
+  <tr><td>15. Tienes tus apuntes divididos por materias <input type="checkbox"></td></tr>
+  <tr><td>16. Anotas las palabras difíciles, tareas especiales, lo que no comprendes <input type="checkbox"></td></tr>
+  <tr><td>17. Revisas y completas los apuntes <input type="checkbox"></td></tr>
+  <tr><td>18. Subrayas las ideas importantes <input type="checkbox"></td></tr>
+</table>
+
+<!-- ESTUDIOS -->
+<table>
+  <tr><th>ESTUDIOS</th></tr>
+  <tr><td>19. Haces una primera lectura de tus notas, cuando preparas un tema <input type="checkbox"></td></tr>
+  <tr><td>20. Tienes facilidad para encontrar las ideas básicas de lo que lees <input type="checkbox"></td></tr>
+  <tr><td>21. Cuando dudas del significado u ortografía de una palabra, consultas el diccionario <input type="checkbox"></td></tr>
+  <tr><td>22. Señalas lo que no entiendes <input type="checkbox"></td></tr>
+  <tr><td>23. Anotas los datos importantes o difíciles de recordar <input type="checkbox"></td></tr>
+  <tr><td>24. Cuando estudias, tratas de resumir mentalmente <input type="checkbox"></td></tr>
+  <tr><td>25. Empleas algún sistema especial para recordar datos <input type="checkbox"></td></tr>
+  <tr><td>26. Después de aprender una lección, la repasas <input type="checkbox"></td></tr>
+  <tr><td>27. Pides ayuda cuando encuentras alguna dificultad <input type="checkbox"></td></tr>
+  <tr><td>28. Llevas al día las asignaturas y los ejercicios <input type="checkbox"></td></tr>
+  <tr><td>29. Cuando te sientas a estudiar, te pones rápidamente a trabajar <input type="checkbox"></td></tr>
+  <tr><td>30. Cuando estudias, te marcas las tareas y las terminas <input type="checkbox"></td></tr>
+  <tr><td>31. Ante un dato geográfico desconocido, consultas los mapas <input type="checkbox"></td></tr>
+  <tr><td>32. Haces esquema de cada lección <input type="checkbox"></td></tr>
+  <tr><td>33. En los esquemas, incluyes la materia del libro y de los apuntes tomados en clase <input type="checkbox"></td></tr>
+  <tr><td>34. Empleas el menor número de palabras para hacer los esquemas <input type="checkbox"></td></tr>
+  <tr><td>35. Si una lección es difícil, utilizas de esquemas y apuntes para hacerla más accesible <input type="checkbox"></td></tr>
+  <tr><td>36. Destacan tus esquemas las ideas principales <input type="checkbox"></td></tr>
+  <tr><td>37. Consultas otros libros además del texto <input type="checkbox"></td></tr>
+  <tr><td>38. Antes de redactar un trabajo, haces un guion <input type="checkbox"></td></tr>
+  <tr><td>39. Compruebas ortografía y limpieza de lo que escribes <input type="checkbox"></td></tr>
+  <tr><td>40. Cuando haces un trabajo, pones el índice, un resumen del contenido y bibliografía <input type="checkbox"></td></tr>
+  <tr><td>41. Te es fácil concentrarte cuando estudias <input type="checkbox"></td></tr>
+  <tr><td>42. Tienes preocupaciones ajenas al estudio que te perturban y disminuyen tu rendimiento <input type="checkbox"></td></tr>
+</table>
+
+<button type="button" id="verResultado" onclick="mostrarResultado()">Ver Resultado</button>
+
+</body>
+</html>
